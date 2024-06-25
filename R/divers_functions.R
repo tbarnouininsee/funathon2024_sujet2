@@ -15,3 +15,4 @@ summary_stat_airport <- function(df) {
     ungroup() %>% 
     arrange(-total)
   return(df2)
+}
