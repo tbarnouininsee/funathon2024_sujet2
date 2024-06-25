@@ -1,4 +1,4 @@
-clean_dataframe <- function(dataframe, var_temps) {
+clean_dataframe <- function(dataframe, var_temps = ANMOIS) {
   dataframe <- dataframe %>% mutate(AN := str_sub({{var_temps}}, 1, 4),
                                     MOIS := str_sub({{var_temps}}, 5, 6),
                                     MOIS := ifelse(str_starts(MOIS, "0"),str_sub(MOIS, 2,2),MOIS))
