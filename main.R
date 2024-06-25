@@ -33,8 +33,8 @@ donnes_def <- airport %>% filter(apt==default_airport) %>%
 
 ggplot(data = donnes_def, aes(x=date, y = trafic)) +
   geom_line()
-
-
+fig <- plot_ly(donnes_def, x = ~date, y = ~trafic, type = 'scatter', mode = 'lines')
+fig
 
 
 
