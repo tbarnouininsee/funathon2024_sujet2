@@ -7,6 +7,7 @@ library(stringr)
 library(sf)
 library(plotly)
 library(ggplot2)
+library(gt)
 
 # Load data ----------------------------------
 
@@ -27,11 +28,12 @@ airports_location <- st_read(urls$geojson$airport)
 liste_aeroports <- unique(airport$apt)
 default_airport <- liste_aeroports[1]
 
-airport <- airport %>% mutate(trafic=apt_pax_dep+apt_pax_tr+apt_pax_arr)
-
-donnes_def <- airport %>% filter(apt==default_airport) %>% 
-  mutate(date = as.Date(paste(anmois, "01", sep=""), format = "%Y%m%d"))
-
 plot_airport_line(airport, "LFOT")
+
+YEARS_LIST  <- as.character(2018:2022)
+MONTHS_LIST <- 1:12
+
+apt_m_y <- airport %>% filter(mois == sample(MONTHS_LIST,1) & an == sample(YEARS_LIST, 1))
+
 
 
