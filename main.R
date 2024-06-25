@@ -15,7 +15,7 @@ source("R/create_data_list.R")
 source("R/import_data.R")  
 source("R/clean_dataframe (var_temps).R")
 source("R/figures.R")
-source("R/divers_function.R")
+source("R/divers_functions.R")
 
 urls <- create_data_list("./sources.yml")
 
