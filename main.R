@@ -36,5 +36,9 @@ MONTHS_LIST <- 1:12
 
 apt_m_y <- airport %>% filter(mois == sample(MONTHS_LIST,1) & an == sample(YEARS_LIST, 1))
 
-resume <- summary_stat_airport(airport)
+stats_aeroports <- summary_stat_airport(airport)
+stats_aeroports_table <- stats_aeroports %>%
+  mutate(name_clean = paste0(str_to_sentence(apt_nom), " _(", apt, ")_")
+  ) %>%
+  select(name_clean, everything())
 
