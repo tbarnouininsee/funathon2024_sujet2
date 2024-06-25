@@ -15,6 +15,7 @@ source("R/create_data_list.R")
 source("R/import_data.R")  
 source("R/clean_dataframe (var_temps).R")
 source("R/figures.R")
+source("R/divers_function.R")
 
 urls <- create_data_list("./sources.yml")
 
@@ -35,5 +36,5 @@ MONTHS_LIST <- 1:12
 
 apt_m_y <- airport %>% filter(mois == sample(MONTHS_LIST,1) & an == sample(YEARS_LIST, 1))
 
-
+resume <- summary_stat_airport(airport)
 
