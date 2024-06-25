@@ -1,11 +1,18 @@
 MONTHS_LIST = 1:12
 
+# pACKAGES
+library(readr)
+library(dplyr)
+library(stringr)
+library(sf)
+
 # Load data ----------------------------------
-urls <- create_data_list("./sources.yml")
 
 source("R/create_data_list.R")
 source("R/import_data.R")  
 source("R/clean_dataframe (var_temps).R")
+
+urls <- create_data_list("./sources.yml")
 
 
 pax_apt_all <- import_airport_data(unlist(urls$airports))
