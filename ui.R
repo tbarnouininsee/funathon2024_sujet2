@@ -3,7 +3,7 @@ main_color <- "black"
 input_date <- shinyWidgets::airDatepickerInput(
   "date",
   label = "Mois choisi",
-  value = "2019-01-01",
+  value = "2022-12-01",
   view = "months",
   minView = "months",
   minDate = "2018-01-01",

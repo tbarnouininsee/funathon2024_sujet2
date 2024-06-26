@@ -29,8 +29,8 @@ liaisons <- import_liaisons_data(unlist(urls$liaisons))
 
 airports_location <- st_read(urls$geojson$airport)
 
-liste_aeroports <- unique(airport$apt)
-default_airport <- liste_aeroports[1]
+liste_aeroports <- unique(airport$apt_nom)
+default_airport <- 	"PARIS-CHARLES DE GAULLE"
 
 YEARS_LIST  <- as.character(2018:2022)
 MONTHS_LIST <- 1:12
