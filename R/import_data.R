@@ -11,7 +11,7 @@ import_airport_data <- function(list_files, ...){
     )
   ) %>% 
     clean_dataframe(...)
-  
+  pax_apt_all <- pax_apt_all %>% mutate(trafic_m=apt_pax_dep+apt_pax_tr+apt_pax_arr)
   return(pax_apt_all)
   
 }

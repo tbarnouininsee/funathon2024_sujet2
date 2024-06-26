@@ -12,6 +12,7 @@ map_leaflet_airport <- function(df, a_l, month, year){
   trafic_date <- df %>% filter(mois == month & an == year)
   
   trafic_aeroports <- a_l %>% left_join(trafic_date, by = c("Code.OACI" = "apt"))
+  
   trafic_aeroports <- trafic_aeroports %>% 
     mutate(volume = case_when(
       trafic_m <= quantile(trafic_aeroports$trafic_m, 1/3) ~palette[1],
