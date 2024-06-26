@@ -8,6 +8,7 @@ library(sf)
 library(plotly)
 library(ggplot2)
 library(gt)
+library(leaflet)
 
 # Load data ----------------------------------
 
@@ -44,6 +45,19 @@ stats_aeroports_table <- stats_aeroports %>%
   select(name_clean, everything())
 
 create_table_airports(stats_aeroports_table)
+
+mois <- sample(MONTHS_LIST,1) 
+an <- sample(YEARS_LIST, 1)
+
+palette <- c("green", "blue", "red")
+
+trafic_date <- airport %>% filter(mois == sample(MONTHS_LIST,1) & an == sample(YEARS_LIST, 1)) %>% 
+  distinct()
+
+trafic_aeroports <- airports_location %>% left_join(trafic_date, by = c("Code.OACI" = "apt"))
+
+leaflet(trafic_aeroports) %>% addTiles() %>%
+  addMarkers(popup = ~paste0(Nom, "<br>", trafic)) 
 
 
 
