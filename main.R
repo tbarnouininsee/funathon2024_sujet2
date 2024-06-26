@@ -16,6 +16,7 @@ source("R/import_data.R")
 source("R/clean_dataframe (var_temps).R")
 source("R/figures.R")
 source("R/divers_functions.R")
+source("R/tables.R")
 
 urls <- create_data_list("./sources.yml")
 
@@ -41,4 +42,8 @@ stats_aeroports_table <- stats_aeroports %>%
   mutate(name_clean = paste0(str_to_sentence(apt_nom), " _(", apt, ")_")
   ) %>%
   select(name_clean, everything())
+
+create_table_airports(stats_aeroports_table)
+
+
 
