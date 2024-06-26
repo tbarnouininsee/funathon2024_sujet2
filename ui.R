@@ -26,19 +26,17 @@ ui <- page_navbar(
   header = em("Projet issu du funathon 2024, organisé par l'Insee et la DGAC"),
   layout_columns(
     card(
+      HTML(
+        '<a href="https://inseefrlab.github.io/funathon2024_sujet2/">👉️ Retourner au tutoriel pour construire cette application</a>'
+      ),
       input_date,
-      textOutput("date1")
-      # table viendra ici
+      gt_output(outputId = "table")
     ),
     layout_columns(
-      card(
-        # carte viendra ici
-        textOutput("date2")
-      ),
+      card(leafletOutput("carte")),
       card(card_header("Fréquentation d'un aéroport", class = "bg-dark"),
            input_airport,
-           textOutput("airport")
-           # figure viendra ici
+           plotlyOutput("lineplot")
       ),
       col_widths = c(12,12)
     ),
