@@ -4,27 +4,27 @@ function(input, output) {
     return(
       summary_stat_airport(
         create_data_from_input(
-          pax_apt_all,
+          airport,
           year(input$date),
           month(input$date)
         )
       )
     )
   })
-  
+
   output$table <- render_gt(
     create_table_airports(table_liaisons())
   )
   
   output$carte <- renderLeaflet(
     map_leaflet_airport(
-      pax_apt_all, airports_location,
+      airport, airports_location,
       month(input$date), year(input$date)
     )
   )
   
   output$lineplot <- renderPlotly(
-    plot_airport_line(pax_apt_all, input$select)
+    plot_airport_line(airport, input$select)
   )
-  
+
 }

@@ -1,5 +1,8 @@
 create_table_airports <- function(df){
-  df2 <- df %>% select(-apt, -apt_nom)
+  df2 <- df %>%
+    mutate(name_clean = paste0(str_to_sentence(apt_nom), " _(", apt, ")_")
+    ) %>%
+    select(name_clean, everything()) %>% select(-apt, -apt_nom)
   tableau_interactif <- gt(df2) %>%
   fmt_number(decimals = 0, suffixing = TRUE) %>%
   fmt_markdown(columns = name_clean) %>%
